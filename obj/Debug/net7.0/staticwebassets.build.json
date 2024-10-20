@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "oSHStOMxtUdAp9mTMkfG0GDsmawPNCHMmmNy8r3VuYI=",
+  "Source": "MeterReaderAPI",
+  "BasePath": "_content/MeterReaderAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
