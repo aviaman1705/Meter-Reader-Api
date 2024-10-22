@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MeterReaderAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1cc9d9dfe16dab6aa908dd749d4901a04fcecfe2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96aee80fbe02a530d63bafafac8057c230ae0d5c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MeterReaderAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MeterReaderAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -90,18 +90,29 @@ namespace MeterReaderAPI.Controllers
             try
             {
                 _logger.LogInformation($"Creating {userCredentials.Email} trying to log in");
-                var result = await _repository.Login(userCredentials.Email, userCredentials.Password);
 
-                if (result.Succeeded)
+                // step one retreive user by email
+                var user = await _repository.GetUserByEmail(userCredentials.Email);
+
+                //step two check if user exsist
+                if(user != null)
                 {
-                    _logger.LogInformation($"{userCredentials.Email} is logged in");
+                    var loginProcess = await _repository.Login(user.UserName, userCredentials.Password);
+                    if (loginProcess.Succeeded)
+                    {
+                        _logger.LogInformation($"{userCredentials.Email} is logged in");
 
-                    var currentUser = _mapper.Map<LoginDTO>(await _repository.GetUserByEmail(userCredentials.Email));
-                    return await BuildToken(currentUser);
+                        var currentUser = _mapper.Map<LoginDTO>(user);
+                        return await BuildToken(currentUser);
+                    }
+                    else
+                    {
+                        return BadRequest("מייל או סיסמא אינם נכונים");
+                    }
                 }
                 else
                 {
-                    return BadRequest("מייל או סיסמא אינם נכונים.");
+                    return BadRequest("יוזר לא קיים במערכת");
                 }
             }
             catch (Exception ex)
@@ -119,7 +130,7 @@ namespace MeterReaderAPI.Controllers
                 new Claim("username",userCredentials.UserName)
             };
 
-            var user = await _userManager.FindByNameAsync(userCredentials.Email);
+            var user = await _userManager.FindByEmailAsync(userCredentials.Email);
 
             var claimsDB = await _userManager.GetClaimsAsync(user);
 
