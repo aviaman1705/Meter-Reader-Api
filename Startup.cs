@@ -56,9 +56,9 @@ namespace MeterReaderAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MeterReaderAPI", Version = "v1" });
             });
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
-                options.User.AllowedUserNameCharacters = "אבגדהוזחטיכלמנסעפצקרשתןםףךץabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+/";
+                options.User.AllowedUserNameCharacters = "אבגדהוזחטיכלמנסעפצקרשתןםףךץabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+/ ";
             })
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
@@ -99,6 +99,8 @@ namespace MeterReaderAPI
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

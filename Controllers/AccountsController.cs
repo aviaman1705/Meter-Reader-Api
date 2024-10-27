@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
-using MeterReaderAPI.DTO;
 using MeterReaderAPI.DTO.User;
 using MeterReaderAPI.Entities;
 using MeterReaderAPI.Helpers;
 using MeterReaderAPI.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -18,21 +16,24 @@ namespace MeterReaderAPI.Controllers
     [ApiController]
     public class AccountsController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
         private readonly IUserRepository _repository;
+        private readonly IWebHostEnvironment __webHostEnvironment;
+
 
         private IMapper _mapper;
         private readonly ILogger<AccountsController> _logger;
 
         public AccountsController(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
             IUserRepository repository,
             IConfiguration configuration,
             IMapper mapper,
-            ILogger<AccountsController> logger)
+            ILogger<AccountsController> logger,
+            IWebHostEnvironment webHostEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -40,14 +41,52 @@ namespace MeterReaderAPI.Controllers
             _configuration = configuration;
             _mapper = mapper;
             _logger = logger;
+            __webHostEnvironment = webHostEnvironment;
         }
 
-        [HttpPost("create")]
+
+        [HttpGet("GetUserDetails")]
+        public async Task<ActionResult<UserDetailsDTO>> GetUserDetails()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Request.Headers["Authorization"]))
+                {
+                    string token = Request.Headers["Authorization"].ToString().Replace("bearer ", string.Empty);
+                    var handler = new JwtSecurityTokenHandler();
+                    var jwtSecurityToken = handler.ReadJwtToken(token);
+
+                    KeyValuePair<string, object> payload = jwtSecurityToken.Payload.FirstOrDefault(x => x.Key.ToLower() == "email");
+                    string currentUserEmail = payload.Value.ToString();
+
+                    var user = _mapper.Map<UserDetailsDTO>(await _repository.GetUserByEmail(currentUserEmail));
+
+                    if (user == null)
+                    {
+                        return BadRequest("יוזר לא קיים במערכת");
+                    }
+
+                    return Ok(user);
+                }
+                else
+                {
+                    return BadRequest("יוזר לא קיים במערכת");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return BadRequest();
+            }
+        }
+
+
+        [HttpPost("Create")]
         public async Task<ActionResult<AuthenticationResponse>> Create([FromBody] RegisterDTO register)
         {
             try
             {
-                var user = new IdentityUser { UserName = register.UserName, Email = register.Email };
+                var user = new ApplicationUser { UserName = register.UserName, Email = register.Email };
 
                 // בדיקה אם מייל קיים במערכת
                 var emailExist = await _repository.GetUserByEmail(register.Email);
@@ -72,7 +111,7 @@ namespace MeterReaderAPI.Controllers
                     return Ok();
                 }
                 else
-                {   
+                {
                     _logger.LogError(result.Errors.ToString());
                     return BadRequest(result.Errors);
                 }
@@ -84,7 +123,7 @@ namespace MeterReaderAPI.Controllers
             }
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<ActionResult<AuthenticationResponse>> Login([FromBody] UserCredentials userCredentials)
         {
             try
@@ -95,7 +134,7 @@ namespace MeterReaderAPI.Controllers
                 var user = await _repository.GetUserByEmail(userCredentials.Email);
 
                 //step two check if user exsist
-                if(user != null)
+                if (user != null)
                 {
                     var loginProcess = await _repository.Login(user.UserName, userCredentials.Password);
                     if (loginProcess.Succeeded)
@@ -114,6 +153,51 @@ namespace MeterReaderAPI.Controllers
                 {
                     return BadRequest("יוזר לא קיים במערכת");
                 }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("UpdateUserDetails")]
+        public async Task<ActionResult<UserDetailsDTO>> UpdateUserDetails([FromForm] UserDetailsDTO userDetails)
+        {
+            try
+            {
+                _logger.LogInformation($"Updating {userDetails.Email} user");
+
+                ApplicationUser user = await _repository.GetUserByEmail(userDetails.Email);
+                if(user!= null)
+                {
+                    user.UserName = userDetails.UserName;
+                    user.Email = userDetails.Email;
+                    user.PhoneNumber = userDetails.Phone;
+
+                    if (userDetails.ImageFile != null)
+                    {
+                        FileUpload fileUpload = new FileUpload(__webHostEnvironment);
+                        user.Image = fileUpload.Save(userDetails.ImageFile, "users");
+                    }
+
+                    var updateOperation = await _repository.Update(user);
+                    if (updateOperation.Succeeded)
+                    {
+                        UserDetailsDTO updatedUser = _mapper.Map<UserDetailsDTO>(user);
+                        return updatedUser;
+                    }
+                    else
+                    {
+                        _logger.LogError(updateOperation.Errors.ToString());
+                        return BadRequest(updateOperation.Errors);
+                    }
+                }
+                else
+                {
+                    return BadRequest("יוזר לא קיים");
+                }
+                
             }
             catch (Exception ex)
             {

@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace MeterReaderAPI
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext([NotNullAttribute] DbContextOptions options) : base(options)
         {

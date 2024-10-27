@@ -86,3 +86,4 @@ E:\projects\MeterReaderAPI\MeterReaderAPI\obj\Debug\net7.0\refint\MeterReaderAPI
 E:\projects\MeterReaderAPI\MeterReaderAPI\obj\Debug\net7.0\MeterReaderAPI.pdb
 E:\projects\MeterReaderAPI\MeterReaderAPI\obj\Debug\net7.0\MeterReaderAPI.genruntimeconfig.cache
 E:\projects\MeterReaderAPI\MeterReaderAPI\obj\Debug\net7.0\ref\MeterReaderAPI.dll
+E:\projects\MeterReaderAPI\MeterReaderAPI\bin\Debug\net7.0\MeterReaderAPI.staticwebassets.runtime.json

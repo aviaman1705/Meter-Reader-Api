@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\1631_20130727003100_439289347523.jpg",
+      "PackagePath": "staticwebassets\\users\\1631_20130727003100_439289347523.jpg"
+    },
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\2024-23-10--10-08-29",
+      "PackagePath": "staticwebassets\\users"
+    },
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\317_20130323132400_865974517537.jpg",
+      "PackagePath": "staticwebassets\\users\\317_20130323132400_865974517537.jpg"
+    },
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\3264_0.jpg",
+      "PackagePath": "staticwebassets\\users\\3264_0.jpg"
+    },
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\340741_20161031071600_261215262741.jpg",
+      "PackagePath": "staticwebassets\\users\\340741_20161031071600_261215262741.jpg"
+    },
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\7012.jpg",
+      "PackagePath": "staticwebassets\\users\\7012.jpg"
+    },
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\83edad6478b2679c6b1105b7676c15f2.jpg",
+      "PackagePath": "staticwebassets\\users\\83edad6478b2679c6b1105b7676c15f2.jpg"
+    },
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\john-rodenn-castillo-iehg_BlPWbQ-unsplash.jpg",
+      "PackagePath": "staticwebassets\\users\\john-rodenn-castillo-iehg_BlPWbQ-unsplash.jpg"
+    },
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\maxresdefault.jpg",
+      "PackagePath": "staticwebassets\\users\\maxresdefault.jpg"
+    },
+    {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\pp5751853_0_0_650_993_0_large.jpg",
+      "PackagePath": "staticwebassets\\users\\pp5751853_0_0_650_993_0_large.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.MeterReaderAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.MeterReaderAPI.props",
+      "PackagePath": "build\\MeterReaderAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.MeterReaderAPI.props",
+      "PackagePath": "buildMultiTargeting\\MeterReaderAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.MeterReaderAPI.props",
+      "PackagePath": "buildTransitive\\MeterReaderAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
