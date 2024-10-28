@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sV3e63U/mjzDFdCqukriSEK9RH5ao8Km27l/UT+JAlk=",
+  "Hash": "OeI9jLyCRxgnBtF8/zOS6njAaFoqeKYCRgkKcC7La4Y=",
   "Source": "MeterReaderAPI",
   "BasePath": "_content/MeterReaderAPI",
   "Mode": "Default",
@@ -112,6 +112,25 @@
       "OriginalItemSpec": "wwwroot\\users\\340741_20161031071600_261215262741.jpg"
     },
     {
+      "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\377423.jpg",
+      "SourceId": "MeterReaderAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\",
+      "BasePath": "_content/MeterReaderAPI",
+      "RelativePath": "users/377423.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\users\\377423.jpg"
+    },
+    {
       "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\7012.jpg",
       "SourceId": "MeterReaderAPI",
       "SourceType": "Discovered",
@@ -150,6 +169,25 @@
       "OriginalItemSpec": "wwwroot\\users\\83edad6478b2679c6b1105b7676c15f2.jpg"
     },
     {
+      "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\8QP96FK9YT5mWu9Wg9ONkdrudpW.jpg",
+      "SourceId": "MeterReaderAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\",
+      "BasePath": "_content/MeterReaderAPI",
+      "RelativePath": "users/8QP96FK9YT5mWu9Wg9ONkdrudpW.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\users\\8QP96FK9YT5mWu9Wg9ONkdrudpW.jpg"
+    },
+    {
       "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\john-rodenn-castillo-iehg_BlPWbQ-unsplash.jpg",
       "SourceId": "MeterReaderAPI",
       "SourceType": "Discovered",
@@ -167,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\users\\john-rodenn-castillo-iehg_BlPWbQ-unsplash.jpg"
+    },
+    {
+      "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\Katherine_Heigl_at_27_Dresses_Premiere_13.jpg",
+      "SourceId": "MeterReaderAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\",
+      "BasePath": "_content/MeterReaderAPI",
+      "RelativePath": "users/Katherine_Heigl_at_27_Dresses_Premiere_13.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\users\\Katherine_Heigl_at_27_Dresses_Premiere_13.jpg"
     },
     {
       "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\maxresdefault.jpg",

@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿
+
+using AutoMapper;
 using MeterReaderAPI.DTO.User;
 using MeterReaderAPI.Entities;
 using MeterReaderAPI.Helpers;
@@ -169,7 +171,7 @@ namespace MeterReaderAPI.Controllers
                 _logger.LogInformation($"Updating {userDetails.Email} user");
 
                 ApplicationUser user = await _repository.GetUserByEmail(userDetails.Email);
-                if(user!= null)
+                if (user != null)
                 {
                     user.UserName = userDetails.UserName;
                     user.Email = userDetails.Email;
@@ -177,7 +179,7 @@ namespace MeterReaderAPI.Controllers
 
                     if (userDetails.ImageFile != null)
                     {
-                        FileUpload fileUpload = new FileUpload(__webHostEnvironment);
+                        FileUpload fileUpload = new FileUpload(__webHostEnvironment, HttpContext);
                         user.Image = fileUpload.Save(userDetails.ImageFile, "users");
                     }
 
@@ -197,7 +199,7 @@ namespace MeterReaderAPI.Controllers
                 {
                     return BadRequest("יוזר לא קיים");
                 }
-                
+
             }
             catch (Exception ex)
             {
