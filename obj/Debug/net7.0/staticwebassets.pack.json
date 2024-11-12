@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\137983240_735.jpg",
+      "PackagePath": "staticwebassets\\users\\137983240_735.jpg"
+    },
+    {
       "Id": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\1631_20130727003100_439289347523.jpg",
       "PackagePath": "staticwebassets\\users\\1631_20130727003100_439289347523.jpg"
     },
