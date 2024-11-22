@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using MeterReaderAPI.Helpers;
 
 namespace MeterReaderAPI
 {
@@ -50,6 +51,7 @@ namespace MeterReaderAPI
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<INotebookRepository, NotebookRepository>();
             services.AddScoped<ISearchRepository, SearchRepository>();
+            services.AddScoped<IFileStorageService, InAppStorageService>();
 
             services.AddSwaggerGen(c =>
             {

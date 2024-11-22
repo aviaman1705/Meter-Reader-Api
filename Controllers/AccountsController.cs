@@ -23,10 +23,10 @@ namespace MeterReaderAPI.Controllers
         private readonly IConfiguration _configuration;
         private readonly IUserRepository _repository;
         private readonly IWebHostEnvironment __webHostEnvironment;
-
-
+        private readonly IFileStorageService _fileStorageService;
         private IMapper _mapper;
         private readonly ILogger<AccountsController> _logger;
+        private string container = "users";
 
         public AccountsController(
             UserManager<ApplicationUser> userManager,
@@ -35,7 +35,8 @@ namespace MeterReaderAPI.Controllers
             IConfiguration configuration,
             IMapper mapper,
             ILogger<AccountsController> logger,
-            IWebHostEnvironment webHostEnvironment)
+            IWebHostEnvironment webHostEnvironment,
+            IFileStorageService fileStorageService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -44,6 +45,7 @@ namespace MeterReaderAPI.Controllers
             _mapper = mapper;
             _logger = logger;
             __webHostEnvironment = webHostEnvironment;
+            _fileStorageService = fileStorageService;
         }
 
 
@@ -179,8 +181,8 @@ namespace MeterReaderAPI.Controllers
 
                     if (userDetails.ImageFile != null)
                     {
-                        FileUpload fileUpload = new FileUpload(__webHostEnvironment, HttpContext);
-                        user.Image = fileUpload.Save(userDetails.ImageFile, "users");
+                        //FileUpload fileUpload = new FileUpload(__webHostEnvironment, HttpContext);
+                        user.Image = await _fileStorageService.SaveFile(container,userDetails.ImageFile);
                     }
 
                     var updateOperation = await _repository.Update(user);
