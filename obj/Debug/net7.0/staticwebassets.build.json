@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jd9H66CBDuBLquzDwXoSe2xQ5AOqYce7MVVzzgeLpJI=",
+  "Hash": "5x1+S3v1JU6ZVSFCT8iq4nccPH8/ZzY4soQYcW+7ZZ0=",
   "Source": "MeterReaderAPI",
   "BasePath": "_content/MeterReaderAPI",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\users\\1631_20130727003100_439289347523.jpg"
+    },
+    {
+      "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\17ab4142-b707-4499-a8c0-a33e378e35ad.jpg",
+      "SourceId": "MeterReaderAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\",
+      "BasePath": "_content/MeterReaderAPI",
+      "RelativePath": "users/17ab4142-b707-4499-a8c0-a33e378e35ad.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\users\\17ab4142-b707-4499-a8c0-a33e378e35ad.jpg"
     },
     {
       "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\2024-23-10--10-08-29",
@@ -205,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\users\\8QP96FK9YT5mWu9Wg9ONkdrudpW.jpg"
+    },
+    {
+      "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\de649340-c490-40ab-9692-92da46e3d734.jpg",
+      "SourceId": "MeterReaderAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\",
+      "BasePath": "_content/MeterReaderAPI",
+      "RelativePath": "users/de649340-c490-40ab-9692-92da46e3d734.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\users\\de649340-c490-40ab-9692-92da46e3d734.jpg"
     },
     {
       "Identity": "E:\\projects\\MeterReaderAPI\\MeterReaderAPI\\wwwroot\\users\\john-rodenn-castillo-iehg_BlPWbQ-unsplash.jpg",

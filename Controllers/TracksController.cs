@@ -204,9 +204,9 @@ namespace MeterReaderAPI.Controllers
                         return list.OrderBy(x => x.Id).ToList();
                 case "date":
                     if (sortType == "desc")
-                        return list.OrderByDescending(x => x.FromDate).ToList();
+                        return list.OrderByDescending(x => x.ToDate).ToList();
                     else
-                        return list.OrderBy(x => x.FromDate).ToList();
+                        return list.OrderBy(x => x.ToDate).ToList();
                 case "notebookNumber":
                     if (sortType == "desc")
                         return list.OrderByDescending(x => x.NotebookNumber).ToList();
