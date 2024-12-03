@@ -1,4 +1,9 @@
 ﻿using MeterReaderAPI.Entities;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Reflection.PortableExecutable;
 
 namespace MeterReaderAPI.Services
 {
@@ -13,31 +18,42 @@ namespace MeterReaderAPI.Services
 
         public List<SearchResult> Search(string term)
         {
-            List<SearchResult> results = new List<SearchResult>();
+            List<SearchResult> searchResults = new List<SearchResult>();
 
-            var notebooks = _context.Notebooks
-                            .Where(x => x.Number.ToString().Contains(term))
-                            .Select(x => new SearchResult()
-                            {
-                                Title = $"{x.Number}",
-                                Link = $"/notebooks/edit/{x.Id}"
-                            }).ToList();
+            string ConnectionString = _context.Database.GetConnectionString() ?? "";
 
-            results.AddRange(notebooks);
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
 
-            var tracks = _context.Tracks
-                           .Where(x => x.Called.ToString().Contains(term)
-                           || x.UnCalled.ToString().Contains(term)
-                           || x.Desc.Contains(term))
-                           .Select(x => new SearchResult()
-                           {
-                               Title = $"{x.Desc}",
-                               Link = $"/tracks/edit/{x.Id}"
-                           }).ToList();
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("SP_SearchResults", conn);
 
-            results.AddRange(tracks);
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            return results;
+                // 3. add parameter to command, which will be passed to the stored procedure
+                cmd.Parameters.Add(new SqlParameter("@Term", term));
+
+                // execute the command
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    // iterate through results, printing each to console
+                    while (rdr.Read())
+                    {
+                        searchResults.Add(new SearchResult()
+                        {
+                            Type = (string)rdr["Type"],
+                            Name = (string)rdr["Name"],
+                            Link = (string)rdr["Link"]
+                        });
+                    }
+
+                    rdr.Close();
+                }
+            }
+
+            return searchResults;
         }
     }
 }
